@@ -1,7 +1,7 @@
 
 let table = document.querySelector('#table');
 
-let questionData = async function () {
+let getQuestionData = async function () {
 
   let data = await axios.get("https://api.stackexchange.com/2.2/questions?page=1&order=desc&sort=activity&site=stackoverflow");
 
@@ -27,8 +27,6 @@ let questionData = async function () {
     table.appendChild(row);
 
   }
-
-  console.log(data);
 }
 
-questionData();
+getQuestionData();
