@@ -1,5 +1,5 @@
 
-let table = $('#table');
+let table = document.querySelector('#table');
 
 let questionData = async function () {
 
@@ -10,13 +10,21 @@ let questionData = async function () {
     let title = data.data.items[item].title;
     let creation_date = data.data.items[item].creation_date;
 
-    let row = $("<tr>");
+    let row = document.createElement("TR");
 
-    row.append($(`<td>${author}</td>`))
-      .append($(`<td>${title}</td>`))
-      .append($(`<td>${creation_date}</td>`));
+    let authorCell = document.createElement("TD");
+    let titleCell = document.createElement("TD");
+    let creation_dateCell = document.createElement("TD");
 
-    table.append(row);
+    authorCell.innerHTML = author;
+    titleCell.innerHTML = title;
+    creation_dateCell.innerHTML = creation_date;
+
+    row.appendChild(authorCell);
+    row.appendChild(titleCell);
+    row.appendChild(creation_dateCell);
+
+    table.appendChild(row);
 
   }
 
